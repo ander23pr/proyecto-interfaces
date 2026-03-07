@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Your Account - BakeryFlow</title>
+
+    <!-- Fuente principal -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Iconos Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind con plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Configuración de Tailwind -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ec7f13",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221910",
+              "neutral-text-light": "#181411",
+              "neutral-text-dark": "#f8f7f6",
+              "subtle-text-light": "#897561",
+              "subtle-text-dark": "#a1988e",
+              "border-light": "#e6e0db",
+              "border-dark": "#4d4235",
+              "card-light": "#ffffff",
+              "card-dark": "#2d2318",
+            },
+            fontFamily: {
+              display: ["Epilogue", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-neutral-text-light dark:text-neutral-text-dark"
+  >
+    <!-- Fondo con imagen y degradado (como el login anterior) -->
+    <div class="fixed inset-0 -z-10">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0UX-7989mP0SvqPDgMbZdjFO04CSzvKGIWIUfHW7WavOhRnAWAnV4_lVVpfGGIoZUV2w78N6qulCe4BRzkiZ22rcsHB_mz2YP-LvvCr3vH1ycXLixNg2DyLmayf59Nn3ql0ahzo69-7ppAbZq2IHd4y0op1NxjKnnpZ0CpoqYs4IlbzFXY9Cc7-tCybZWje68p4VToui6Giy799UNz-br5tYph-4-XNVovxNNwB_xvQf3xJcILxb0wowZ2RX4kSX7H8Gydw9huTNT"
+        alt="Fondo BakeryFlow"
+        class="h-full w-full object-cover opacity-20 dark:opacity-10"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-background-light via-background-light/50 to-transparent dark:from-background-dark dark:via-background-dark/50"
+      ></div>
+    </div>
+
+    <div
+      class="relative flex min-h-screen w-full flex-col items-center justify-center p-4"
+    >
+      <div
+        class="w-full max-w-md bg-card-light dark:bg-card-dark rounded-xl p-8 shadow-lg border border-border-light dark:border-border-dark"
+      >
+        <!-- Encabezado -->
+        <header
+          class="mb-8 flex flex-col items-center justify-center text-center"
+        >
+          <div
+            class="flex items-center gap-3 text-neutral-text-light dark:text-neutral-text-dark"
+          >
+            <div class="size-8 text-primary">
+              <svg
+                fill="none"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h1 class="text-2xl font-bold tracking-tight">BakeryFlow</h1>
+          </div>
+
+          <div class="mt-6">
+            <p
+              class="text-4xl font-black tracking-[-0.033em] text-neutral-text-light dark:text-neutral-text-dark"
+            >
+              Create Your Account
+            </p>
+            <p
+              class="text-subtle-text-light dark:text-subtle-text-dark mt-2 text-base font-normal"
+            >
+              Join us and start managing your bakery with ease.
+            </p>
+          </div>
+        </header>
+
+        <!-- Formulario -->
+        <main class="w-full space-y-6">
+          <div class="flex flex-col">
+            <label
+              for="full-name"
+              class="pb-2 text-base font-medium text-neutral-text-light dark:text-neutral-text-dark"
+              >Full Name</label
+            >
+            <input
+              id="full-name"
+              type="text"
+              placeholder="e.g., Jane Doe"
+              class="form-input h-14 w-full rounded-lg border border-border-light bg-card-light p-4 text-base text-neutral-text-light placeholder:text-subtle-text-light focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-border-dark dark:bg-card-dark dark:text-neutral-text-dark dark:placeholder:text-subtle-text-dark"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label
+              for="email"
+              class="pb-2 text-base font-medium text-neutral-text-light dark:text-neutral-text-dark"
+              >Email Address</label
+            >
+            <input
+              id="email"
+              type="email"
+              placeholder="e.g., you@example.com"
+              class="form-input h-14 w-full rounded-lg border border-border-light bg-card-light p-4 text-base text-neutral-text-light placeholder:text-subtle-text-light focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-border-dark dark:bg-card-dark dark:text-neutral-text-dark dark:placeholder:text-subtle-text-dark"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label
+              for="password"
+              class="pb-2 text-base font-medium text-neutral-text-light dark:text-neutral-text-dark"
+              >Password</label
+            >
+            <div class="relative">
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter a secure password"
+                class="form-input h-14 w-full rounded-lg border border-border-light bg-card-light p-4 pr-12 text-base text-neutral-text-light placeholder:text-subtle-text-light focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-border-dark dark:bg-card-dark dark:text-neutral-text-dark dark:placeholder:text-subtle-text-dark"
+              />
+              <button
+                type="button"
+                class="absolute right-0 mr-4 top-1/2 -translate-y-1/2 text-subtle-text-light dark:text-subtle-text-dark"
+              >
+                <span class="material-symbols-outlined">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <label
+              for="confirm-password"
+              class="pb-2 text-base font-medium text-neutral-text-light dark:text-neutral-text-dark"
+              >Confirm Password</label
+            >
+            <div class="relative">
+              <input
+                id="confirm-password"
+                type="password"
+                placeholder="Re-enter your password"
+                class="form-input h-14 w-full rounded-lg border border-border-light bg-card-light p-4 pr-12 text-base text-neutral-text-light placeholder:text-subtle-text-light focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-border-dark dark:bg-card-dark dark:text-neutral-text-dark dark:placeholder:text-subtle-text-dark"
+              />
+              <button
+                type="button"
+                class="absolute right-0 mr-4 top-1/2 -translate-y-1/2 text-subtle-text-light dark:text-subtle-text-dark"
+              >
+                <span class="material-symbols-outlined">visibility_off</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-4 pt-2">
+            <button
+              class="h-14 w-full rounded-lg bg-primary text-white font-bold text-base shadow-sm transition-all hover:bg-primary/90 focus:ring-2 focus:ring-primary/50"
+            >
+              Create Account
+            </button>
+            <div
+              class="rounded-lg border border-border-light bg-primary/5 p-4 text-center dark:border-border-dark dark:bg-primary/10"
+            >
+              <p
+                class="text-sm text-subtle-text-light dark:text-subtle-text-dark"
+              >
+                Once your account is set up, you can invite team members and
+                assign roles like Owner, Administrator, or Assistant.
+              </p>
+            </div>
+          </div>
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="mt-8 text-center">
+          <p
+            class="text-base text-subtle-text-light dark:text-subtle-text-dark"
+          >
+            Already have an account?
+            <a class="font-bold text-primary hover:underline" href="#"
+              >Log In</a
+            >
+          </p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

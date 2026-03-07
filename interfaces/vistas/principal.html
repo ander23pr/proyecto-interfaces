@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bakery Management System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#E5B657",
+                        "background-light": "#FAF8F5",
+                        "background-dark": "#1a1312",
+                        "text-primary-light": "#4A2E2A",
+                        "text-primary-dark": "#FAF8F5",
+                        "text-secondary-light": "#8DA382",
+                        "text-secondary-dark": "#a2bca8",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#2c221e",
+                        "border-light": "#e6e0db",
+                        "border-dark": "#3f322d"
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex justify-center px-4 sm:px-8">
+<div class="flex w-full max-w-6xl items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark py-4">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined !text-3xl">bakery_dining</span>
+</div>
+<h2 class="text-lg font-bold tracking-tight">BakeWell</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Features</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Pricing</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Testimonials</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-text-primary-light text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
+<span class="truncate">Login / Sign Up</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-1 flex-col items-center">
+<div class="flex w-full max-w-6xl flex-col px-4 sm:px-8">
+<!-- HeroSection -->
+<section class="w-full py-16 md:py-24">
+<div class="relative flex min-h-[480px] w-full flex-col items-center justify-center gap-6 overflow-hidden rounded-xl bg-cover bg-center p-6 text-center" data-alt="A beautiful, rustic loaf of artisanal bread on a wooden surface, surrounded by flour." style='background-image: linear-gradient(rgba(74, 46, 42, 0.5) 0%, rgba(74, 46, 42, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDN_jrbMFEIR3OAQbOwLwNKeS8aRCmrufknnwcsaDGddo0mO8usWfnlYsXgVpip0Q5gFdxLtE4qyig1YdXfLZPYe4fKcwdoF8sFoyLuPgagcNr6U38alnrRVVjdOK8tYbGrY4j44mTqNL2GuIwL7cuvJnRIwIL6CNBSOVrKHHya_eislo_ypPQrND_kxO5kL8rdMLbbl0Af530U9ZfwdgONqnZsB_bmEOo7T-4AoKdOs1_XCqBZPb3bnGCvJrfEs1GefyYALXw2M8L4");'>
+<div class="flex flex-col gap-4">
+<h1 class="text-4xl font-black leading-tight tracking-tighter text-white md:text-6xl">Bake Smarter, Not Harder.</h1>
+<h2 class="max-w-xl text-base font-normal leading-normal text-slate-200 md:text-lg">The all-in-one management system designed for modern bakeries.</h2>
+</div>
+<button class="flex min-w-[84px] max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-text-primary-light text-base font-bold shadow-lg transition-transform hover:scale-105">
+<span class="truncate">Start Your Free Trial</span>
+</button>
+</div>
+</section>
+<!-- FeatureSection -->
+<section class="w-full py-16 md:py-24">
+<div class="flex flex-col gap-12">
+<div class="flex flex-col gap-4 text-center">
+<h2 class="text-3xl font-bold tracking-tight md:text-4xl">Everything You Need to Run Your Bakery</h2>
+<p class="text-base font-normal leading-normal text-text-primary-light/70 dark:text-text-primary-dark/70 max-w-2xl mx-auto">From inventory to sales, our system provides the tools you need to save time, reduce waste, and increase profits.</p>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 text-center items-center transition-transform hover:-translate-y-1">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-lg font-bold">Inventory Management</h3>
+<p class="text-sm font-normal text-text-primary-light/70 dark:text-text-primary-dark/70">Keep track of all your ingredients in real-time to prevent shortages.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 text-center items-center transition-transform hover:-translate-y-1">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-lg font-bold">Order Management</h3>
+<p class="text-sm font-normal text-text-primary-light/70 dark:text-text-primary-dark/70">Streamline your order process from placement to pickup or delivery.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 text-center items-center transition-transform hover:-translate-y-1">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">calculate</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-lg font-bold">Recipe Costing</h3>
+<p class="text-sm font-normal text-text-primary-light/70 dark:text-text-primary-dark/70">Calculate the exact cost of each recipe to price your products perfectly.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 text-center items-center transition-transform hover:-translate-y-1">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">bar_chart</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-lg font-bold">Sales Analytics</h3>
+<p class="text-sm font-normal text-text-primary-light/70 dark:text-text-primary-dark/70">Get detailed insights into sales performance to make smarter decisions.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="w-full py-16 md:py-24">
+<div class="flex flex-col gap-12 items-center">
+<div class="flex flex-col gap-4 text-center">
+<h2 class="text-3xl font-bold tracking-tight md:text-4xl">Get Started in 3 Simple Steps</h2>
+</div>
+<div class="grid w-full max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
+<div class="flex flex-col items-center gap-4 text-center">
+<div class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background-light dark:bg-background-dark text-2xl font-bold text-primary">1</div>
+<h3 class="text-xl font-bold">Sign Up</h3>
+<p class="text-sm text-text-primary-light/70 dark:text-text-primary-dark/70">Create your account in minutes and set up your bakery profile.</p>
+</div>
+<div class="flex flex-col items-center gap-4 text-center">
+<div class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background-light dark:bg-background-dark text-2xl font-bold text-primary">2</div>
+<h3 class="text-xl font-bold">Add Products</h3>
+<p class="text-sm text-text-primary-light/70 dark:text-text-primary-dark/70">Easily add your recipes, ingredients, and finished products to the system.</p>
+</div>
+<div class="flex flex-col items-center gap-4 text-center">
+<div class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-background-light dark:bg-background-dark text-2xl font-bold text-primary">3</div>
+<h3 class="text-xl font-bold">Manage &amp; Grow</h3>
+<p class="text-sm text-text-primary-light/70 dark:text-text-primary-dark/70">Start managing orders, tracking inventory, and watching your profits rise.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="w-full py-16 md:py-24">
+<div class="flex flex-col gap-12">
+<div class="flex flex-col gap-4 text-center">
+<h2 class="text-3xl font-bold tracking-tight md:text-4xl">Loved by Bakers Everywhere</h2>
+<p class="text-base font-normal leading-normal text-text-primary-light/70 dark:text-text-primary-dark/70 max-w-2xl mx-auto">Don't just take our word for it. Here's what some of our happy customers have to say.</p>
+</div>
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6">
+<p class="text-base font-medium">"This system has been a game-changer. I'm saving at least 10 hours a week on admin, and my ingredient waste has dropped by half."</p>
+<div class="flex items-center gap-3">
+<img class="h-10 w-10 rounded-full object-cover" data-alt="Profile picture of a smiling woman." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5jeWSig35ysCsJB8cz2mxebj7cptMSHHMc8BtObd9dO8OfSaB6upqV0t6bmj-i0Lpf0avSeaDeBXy3s-Pnpi1uUwK0R1nQF93AghGVdirZFC2oKn4Tg7umL0w1X3ZZiR9JPhTYcrYetz9nPWBQiSjxmbDD_zlGaAhLwEVjZM4hSH-TT4mAL8WfkIdmba7K5SFt8_OcLRNi0mRjKCrZVQolgwh7k0I3eySqW-ZCAvx4PeZMTO2qR3cJWP-67ZUNiWj0mcqgZ06vFRk"/>
+<div>
+<p class="text-sm font-bold">Sarah Jenning</p>
+<p class="text-xs text-text-primary-light/70 dark:text-text-primary-dark/70">Owner, The Rolling Pin</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6">
+<p class="text-base font-medium">"The recipe costing feature alone is worth its weight in gold. I finally know exactly how profitable each of my products are."</p>
+<div class="flex items-center gap-3">
+<img class="h-10 w-10 rounded-full object-cover" data-alt="Profile picture of a man with a beard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnCgFcv_GH7lH-P1jTHt9SWoMQe-r9TL3rjMIMOPQdnReZGAGmx7O-nWkrrzMr-K8yLj35zudM8rG9kXk1-MSs3vPkoNzkh1TcmnMZda5LoAgQqUH9fjs3qLCTjDmhHSTYwfeQeuH57jyTeKwL6WyRJGhP2cAnmVX5gMb3A3xddNO9KghuHhZFLhDtvOEizbJ2a3XjYPxCtlO3ChrJ3fOYFj1D6Ze9UKEzKxUBvGTXPDcMcCAFczZesQXBSld1wNRgi95J5zU-8L3R"/>
+<div>
+<p class="text-sm font-bold">Mark Davis</p>
+<p class="text-xs text-text-primary-light/70 dark:text-text-primary-dark/70">Founder, Crust &amp; Co.</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6">
+<p class="text-base font-medium">"My customers love the seamless online ordering. It's professional, easy to use, and has boosted my custom cake orders significantly."</p>
+<div class="flex items-center gap-3">
+<img class="h-10 w-10 rounded-full object-cover" data-alt="Profile picture of a smiling woman with glasses." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHM9dA9xEHQZv7EXpgrh5FftGQ9CZhyOlm2MJD2KWAsZRdqzjRuSWdixtIaa07oLXmaBrRK2DosyHqgY_2WARFsER9XGLRXA6HGlOVTKSrcbAaOsHFdGqZWUPvra83f1cUopm-o2xObP9B-qaWiLwyxm-D0PglJELBWzCtF4jfh7FImWMbEJ5Xb7PFCU05WKSNZISHEHyFA3axXP_GXlrC7lAkxHDyAtuIvxUm8Z6vljXL0ZPKj4MPZQOmjuqatrZ4PxyNLcRtqd7J"/>
+<div>
+<p class="text-sm font-bold">Emily Carter</p>
+<p class="text-xs text-text-primary-light/70 dark:text-text-primary-dark/70">Chef, Sweet Petals</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark">
+<div class="flex justify-center px-4 sm:px-8">
+<div class="w-full max-w-6xl py-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-sm text-text-primary-light/70 dark:text-text-primary-dark/70">© 2024 BakeWell. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

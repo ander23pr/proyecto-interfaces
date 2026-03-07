@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Sweet Corner - Orders Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ec7f13",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221910",
+              "text-light": "#181411",
+              "text-dark": "#f8f7f6",
+              "card-light": "#ffffff",
+              "card-dark": "#2a2016",
+              "border-light": "#e5e7eb",
+              "border-dark": "#44403c",
+            },
+            fontFamily: {
+              display: ["Epilogue", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .material-symbols-outlined.fill {
+        font-variation-settings: "FILL" 1;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+  >
+    <div class="relative flex min-h-screen w-full">
+      <!-- SideNavBar -->
+      <aside
+        class="flex h-screen w-64 flex-col justify-between border-r border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 sticky top-0"
+      >
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-3 px-2">
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              data-alt="The Sweet Corner logo with a cupcake illustration"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeIGVqZnvv3Y3DeXwxEZjDdUVGo8xre0mg9_xIRxPWUcEhSr4q37Ei7onf4b9O5wnyh1B_XjPuUlywfbbDGZLs9BvRM_ygdweV76J4JuJaCcXb2t3EoLwJHFPt3dwsSgVl699NvZYKY4Nc0mmDxlgaUgZ_x7mKdM8h2Ond6apfcTz09aXPtnfLiDL3MisstwHDSGjeOHOvIiyD_DF1canVOCbOlhdke8bjkTBMYl-l79iYdoEloKKe6OR37VywgyyPTbK9AnqJrskv');
+              "
+            ></div>
+            <div class="flex flex-col">
+              <h1 class="text-base font-bold">The Sweet Corner</h1>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Management</p>
+            </div>
+          </div>
+          <nav class="flex flex-col gap-2 mt-4">
+            <a
+              class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg hover:bg-primary/10"
+              href="#"
+            >
+              <span class="material-symbols-outlined">dashboard</span>
+              Dashboard
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg bg-primary/10 text-primary"
+              href="#"
+            >
+              <span class="material-symbols-outlined fill">shopping_cart</span>
+              Orders
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg hover:bg-primary/10"
+              href="#"
+            >
+              <span class="material-symbols-outlined">groups</span>
+              Customers
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg hover:bg-primary/10"
+              href="#"
+            >
+              <span class="material-symbols-outlined">cake</span>
+              Products
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg hover:bg-primary/10"
+              href="#"
+            >
+              <span class="material-symbols-outlined">bar_chart</span>
+              Analytics
+            </a>
+          </nav>
+        </div>
+        <div class="flex flex-col gap-1">
+          <a
+            class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg hover:bg-primary/10"
+            href="#"
+          >
+            <span class="material-symbols-outlined">settings</span>
+            Settings
+          </a>
+          <a
+            class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg hover:bg-primary/10"
+            href="#"
+          >
+            <span class="material-symbols-outlined">help</span>
+            Help
+          </a>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="flex-1 flex flex-col">
+        <!-- Toolbar -->
+        <header
+          class="flex justify-between items-center gap-4 px-6 py-3 border-b border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark sticky top-0 z-10"
+        >
+          <div class="flex-1 max-w-md">
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                >search</span
+              >
+              <input
+                class="w-full pl-10 pr-4 py-2 rounded-lg border bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary focus:border-primary"
+                placeholder="Search orders, customers..."
+                type="search"
+              />
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="p-2 rounded-full hover:bg-primary/10">
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button class="p-2 rounded-full hover:bg-primary/10">
+              <span class="material-symbols-outlined">account_circle</span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 overflow-hidden rounded-lg h-10 bg-primary text-white text-sm font-bold min-w-0 px-4 hover:opacity-90"
+            >
+              <span class="material-symbols-outlined fill text-base"
+                >add_circle</span
+              >
+              <span class="truncate">New Order</span>
+            </button>
+          </div>
+        </header>
+        <div class="flex-1 p-6">
+          <div class="flex flex-wrap justify-between items-start gap-4">
+            <div class="flex flex-col gap-1">
+              <p class="text-3xl font-black tracking-tight">Orders Dashboard</p>
+              <p class="text-gray-500 dark:text-gray-400">
+                Manage all customer orders from one place.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <!-- Filter Panel -->
+            <div
+              class="lg:col-span-1 bg-card-light dark:bg-card-dark rounded-xl p-4 self-start"
+            >
+              <h3 class="text-lg font-bold tracking-tight">Filter Orders</h3>
+              <div class="mt-4 space-y-4">
+                <div>
+                  <label
+                    class="text-sm font-medium text-gray-600 dark:text-gray-300"
+                    for="client-name"
+                    >Client Name</label
+                  >
+                  <input
+                    class="mt-1 block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary"
+                    id="client-name"
+                    placeholder="e.g., Jane Doe"
+                    type="text"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="text-sm font-medium text-gray-600 dark:text-gray-300"
+                    >Order Status</label
+                  >
+                  <div class="mt-2 space-y-2">
+                    <div class="flex items-center">
+                      <input
+                        class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        type="checkbox"
+                      />
+                      <label class="ml-2 text-sm">Pending</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input
+                        class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        type="checkbox"
+                      />
+                      <label class="ml-2 text-sm">In-Process</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input
+                        class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        type="checkbox"
+                      />
+                      <label class="ml-2 text-sm">Delivered</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input
+                        class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        type="checkbox"
+                      />
+                      <label class="ml-2 text-sm">Canceled</label>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p
+                    class="text-sm font-medium text-gray-600 dark:text-gray-300 mb-1"
+                  >
+                    Date Range
+                  </p>
+                  <div class="flex flex-col gap-0.5">
+                    <div class="flex items-center p-1 justify-between">
+                      <button>
+                        <span class="material-symbols-outlined text-lg"
+                          >chevron_left</span
+                        >
+                      </button>
+                      <p class="text-sm font-bold">July 2024</p>
+                      <button>
+                        <span class="material-symbols-outlined text-lg"
+                          >chevron_right</span
+                        >
+                      </button>
+                    </div>
+                    <div class="grid grid-cols-7 text-center">
+                      <p
+                        class="text-xs font-bold h-8 flex items-center justify-center"
+                      >
+                        S
+                      </p>
+                      <p
+                        class="text-xs font-bold h-8 flex items-center justify-center"
+                      >
+                        M
+                      </p>
+                      <p
+                        class="text-xs font-bold h-8 flex items-center justify-center"
+                      >
+                        T
+                      </p>
+                      <p
+                        class="text-xs font-bold h-8 flex items-center justify-center"
+                      >
+                        W
+                      </p>
+                      <p
+                        class="text-xs font-bold h-8 flex items-center justify-center"
+                      >
+                        T
+                      </p>
+                      <p
+                        class="text-xs font-bold h-8 flex items-center justify-center"
+                      >
+                        F
+                      </p>
+                      <p
+                        class="text-xs font-bold h-8 flex items-center justify-center"
+                      >
+                        S
+                      </p>
+                      <div class="col-start-2 h-8 w-full text-sm">1</div>
+                      <div class="h-8 w-full text-sm">2</div>
+                      <div class="h-8 w-full text-sm">3</div>
+                      <div class="h-8 w-full text-sm">4</div>
+                      <button
+                        class="h-8 w-full text-sm rounded-l-full bg-primary text-white"
+                      >
+                        5
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        6
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        7
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        8
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        9
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        10
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        11
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        12
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        13
+                      </button>
+                      <button class="h-8 w-full text-sm bg-primary/20">
+                        14
+                      </button>
+                      <button
+                        class="h-8 w-full text-sm bg-primary/20 rounded-r-full text-white bg-primary"
+                      >
+                        15
+                      </button>
+                      <div class="h-8 w-full text-sm">16</div>
+                      <div class="h-8 w-full text-sm">17</div>
+                      <div class="h-8 w-full text-sm">18</div>
+                      <div class="h-8 w-full text-sm">19</div>
+                      <div class="h-8 w-full text-sm">20</div>
+                      <div class="h-8 w-full text-sm">21</div>
+                      <div class="h-8 w-full text-sm">22</div>
+                      <div class="h-8 w-full text-sm">23</div>
+                      <div class="h-8 w-full text-sm">24</div>
+                      <div class="h-8 w-full text-sm">25</div>
+                      <div class="h-8 w-full text-sm">26</div>
+                      <div class="h-8 w-full text-sm">27</div>
+                      <div class="h-8 w-full text-sm">28</div>
+                      <div class="h-8 w-full text-sm">29</div>
+                      <div class="h-8 w-full text-sm">30</div>
+                      <div class="h-8 w-full text-sm">31</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-2 mt-4">
+                  <button
+                    class="w-full h-10 px-4 rounded-lg bg-primary text-white font-bold text-sm"
+                  >
+                    Apply Filters
+                  </button>
+                  <button
+                    class="w-full h-10 px-4 rounded-lg bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark font-bold text-sm"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Order Table -->
+            <div
+              class="lg:col-span-3 bg-card-light dark:bg-card-dark rounded-xl p-4"
+            >
+              <h3 class="text-lg font-bold tracking-tight">Active Orders</h3>
+              <div class="mt-4 overflow-x-auto">
+                <table class="w-full text-sm text-left">
+                  <thead
+                    class="text-xs text-gray-500 uppercase bg-background-light dark:bg-background-dark"
+                  >
+                    <tr>
+                      <th class="px-4 py-3" scope="col">Order #</th>
+                      <th class="px-4 py-3" scope="col">Client</th>
+                      <th class="px-4 py-3" scope="col">Due Date</th>
+                      <th class="px-4 py-3" scope="col">Items</th>
+                      <th class="px-4 py-3" scope="col">Total</th>
+                      <th class="px-4 py-3" scope="col">Status</th>
+                      <th class="px-4 py-3" scope="col">
+                        <span class="sr-only">Actions</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      class="border-b border-border-light dark:border-border-dark hover:bg-primary/5 cursor-pointer"
+                    >
+                      <td class="px-4 py-3 font-medium">#1025</td>
+                      <td class="px-4 py-3">Olivia Martin</td>
+                      <td class="px-4 py-3">Jul 12, 2024</td>
+                      <td class="px-4 py-3">
+                        2x Chocolate Cake, 1x Box of Macarons
+                      </td>
+                      <td class="px-4 py-3">$115.00</td>
+                      <td class="px-4 py-3">
+                        <span
+                          class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800"
+                          >In-Process</span
+                        >
+                      </td>
+                      <td class="px-4 py-3">
+                        <button>
+                          <span class="material-symbols-outlined"
+                            >more_horiz</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      class="border-b border-border-light dark:border-border-dark hover:bg-primary/5 cursor-pointer"
+                    >
+                      <td class="px-4 py-3 font-medium">#1024</td>
+                      <td class="px-4 py-3">Liam Garcia</td>
+                      <td class="px-4 py-3">Jul 11, 2024</td>
+                      <td class="px-4 py-3">1x Wedding Cake (3-tier)</td>
+                      <td class="px-4 py-3">$450.00</td>
+                      <td class="px-4 py-3">
+                        <span
+                          class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"
+                          >Delivered</span
+                        >
+                      </td>
+                      <td class="px-4 py-3">
+                        <button>
+                          <span class="material-symbols-outlined"
+                            >more_horiz</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      class="border-b border-border-light dark:border-border-dark hover:bg-primary/5 cursor-pointer"
+                    >
+                      <td class="px-4 py-3 font-medium">#1023</td>
+                      <td class="px-4 py-3">Noah Martinez</td>
+                      <td class="px-4 py-3">Jul 14, 2024</td>
+                      <td class="px-4 py-3">12x Cupcakes (Assorted)</td>
+                      <td class="px-4 py-3">$42.50</td>
+                      <td class="px-4 py-3">
+                        <span
+                          class="px-2 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-800"
+                          >Pending</span
+                        >
+                      </td>
+                      <td class="px-4 py-3">
+                        <button>
+                          <span class="material-symbols-outlined"
+                            >more_horiz</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      class="border-b border-border-light dark:border-border-dark hover:bg-primary/5 cursor-pointer"
+                    >
+                      <td class="px-4 py-3 font-medium">#1022</td>
+                      <td class="px-4 py-3">Emma Rodriguez</td>
+                      <td class="px-4 py-3">Jul 9, 2024</td>
+                      <td class="px-4 py-3">1x Birthday Cake</td>
+                      <td class="px-4 py-3">$75.00</td>
+                      <td class="px-4 py-3">
+                        <span
+                          class="px-2 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-800"
+                          >Canceled</span
+                        >
+                      </td>
+                      <td class="px-4 py-3">
+                        <button>
+                          <span class="material-symbols-outlined"
+                            >more_horiz</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      class="border-b border-border-light dark:border-border-dark hover:bg-primary/5 cursor-pointer"
+                    >
+                      <td class="px-4 py-3 font-medium">#1021</td>
+                      <td class="px-4 py-3">Ava Smith</td>
+                      <td class="px-4 py-3">Jul 15, 2024</td>
+                      <td class="px-4 py-3">6x Croissants, 6x Scones</td>
+                      <td class="px-4 py-3">$38.00</td>
+                      <td class="px-4 py-3">
+                        <span
+                          class="px-2 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-800"
+                          >Pending</span
+                        >
+                      </td>
+                      <td class="px-4 py-3">
+                        <button>
+                          <span class="material-symbols-outlined"
+                            >more_horiz</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

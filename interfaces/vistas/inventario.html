@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Inventory Management - The Sweet Corner</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#46ec13",
+              "background-light": "#f6f8f6",
+              "background-dark": "#142210",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="font-display bg-background-light dark:bg-background-dark">
+    <div
+      class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="flex flex-grow">
+        <!-- SideNavBar -->
+        <aside
+          class="flex flex-col w-64 bg-white dark:bg-[#1C2C19] border-r border-gray-200 dark:border-gray-700"
+        >
+          <div class="flex h-full flex-col justify-between p-4">
+            <div class="flex flex-col gap-4">
+              <div class="flex gap-3 items-center px-3 py-2">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                  data-alt="Bakery logo"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0WUmAjXD3EaiqNfOzONN3WyS5gdcJeQRqmkdxeSHzqs9mU7KbaOx6HvCKDN2W2U8abW9oAzdpEC0NxOVBIG01X_UmoVbj_7mO0b0oDCoTjG2Qe1A0lk72RPyK6_WmwfH_OJ2QBg5NrFpAvVb-69FAOMTxEZ2txmpMM61VYgm6wA16rI8Nq98iGAy4AdxxXMsIZV9pgAUuqH-cYNmKftPgHokApz8SsJ7noiBaVvZdJIs420YVuPOE_Mt-5kDmehHxFVX_JvHs3G5K');
+                  "
+                ></div>
+                <div class="flex flex-col">
+                  <h1
+                    class="text-[#131811] dark:text-white text-base font-medium leading-normal"
+                  >
+                    The Sweet Corner
+                  </h1>
+                  <p
+                    class="text-[#6b8961] dark:text-gray-400 text-sm font-normal leading-normal"
+                  >
+                    Management System
+                  </p>
+                </div>
+              </div>
+              <nav class="flex flex-col gap-2 mt-4">
+                <a
+                  class="flex items-center gap-3 px-3 py-2 text-[#131811] dark:text-gray-300 rounded-lg hover:bg-[#f1f4f0] dark:hover:bg-background-dark"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >dashboard</span
+                  >
+                  <p class="text-sm font-medium leading-normal">Dashboard</p>
+                </a>
+                <a
+                  class="flex items-center gap-3 px-3 py-2 text-[#131811] dark:text-gray-300 rounded-lg hover:bg-[#f1f4f0] dark:hover:bg-background-dark"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >receipt_long</span
+                  >
+                  <p class="text-sm font-medium leading-normal">Orders</p>
+                </a>
+                <a
+                  class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 dark:bg-primary/30 text-[#131811] dark:text-white"
+                  href="#"
+                >
+                  <span
+                    class="material-symbols-outlined text-2xl"
+                    style="font-variation-settings: 'FILL' 1"
+                    >inventory_2</span
+                  >
+                  <p class="text-sm font-medium leading-normal">Inventory</p>
+                </a>
+                <a
+                  class="flex items-center gap-3 px-3 py-2 text-[#131811] dark:text-gray-300 rounded-lg hover:bg-[#f1f4f0] dark:hover:bg-background-dark"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >menu_book</span
+                  >
+                  <p class="text-sm font-medium leading-normal">Recipes</p>
+                </a>
+                <a
+                  class="flex items-center gap-3 px-3 py-2 text-[#131811] dark:text-gray-300 rounded-lg hover:bg-[#f1f4f0] dark:hover:bg-background-dark"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-2xl"
+                    >bar_chart</span
+                  >
+                  <p class="text-sm font-medium leading-normal">Reports</p>
+                </a>
+              </nav>
+            </div>
+            <div class="flex flex-col gap-1">
+              <a
+                class="flex items-center gap-3 px-3 py-2 text-[#131811] dark:text-gray-300 rounded-lg hover:bg-[#f1f4f0] dark:hover:bg-background-dark"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-2xl">settings</span>
+                <p class="text-sm font-medium leading-normal">Settings</p>
+              </a>
+              <a
+                class="flex items-center gap-3 px-3 py-2 text-[#131811] dark:text-gray-300 rounded-lg hover:bg-[#f1f4f0] dark:hover:bg-background-dark"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-2xl">help</span>
+                <p class="text-sm font-medium leading-normal">Help</p>
+              </a>
+            </div>
+          </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-6 lg:p-8">
+          <div class="max-w-7xl mx-auto">
+            <!-- PageHeading -->
+            <div class="flex flex-wrap justify-between gap-3 items-center mb-6">
+              <p
+                class="text-[#131811] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] min-w-72"
+              >
+                Inventory Management
+              </p>
+            </div>
+            <!-- Stats -->
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
+            >
+              <div
+                class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#dee6db] dark:border-gray-700 bg-white dark:bg-[#1C2C19]"
+              >
+                <p
+                  class="text-[#131811] dark:text-gray-300 text-base font-medium leading-normal"
+                >
+                  Total Items
+                </p>
+                <p
+                  class="text-[#131811] dark:text-white tracking-light text-2xl font-bold leading-tight"
+                >
+                  124
+                </p>
+              </div>
+              <div
+                class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#dee6db] dark:border-gray-700 bg-white dark:bg-[#1C2C19]"
+              >
+                <p
+                  class="text-[#131811] dark:text-gray-300 text-base font-medium leading-normal"
+                >
+                  Items Low on Stock
+                </p>
+                <p
+                  class="text-[#D9534F] tracking-light text-2xl font-bold leading-tight"
+                >
+                  4
+                </p>
+              </div>
+              <div
+                class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#dee6db] dark:border-gray-700 bg-white dark:bg-[#1C2C19]"
+              >
+                <p
+                  class="text-[#131811] dark:text-gray-300 text-base font-medium leading-normal"
+                >
+                  Expiring This Week
+                </p>
+                <p
+                  class="text-[#F0AD4E] tracking-light text-2xl font-bold leading-tight"
+                >
+                  8
+                </p>
+              </div>
+              <div
+                class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#dee6db] dark:border-gray-700 bg-white dark:bg-[#1C2C19]"
+              >
+                <p
+                  class="text-[#131811] dark:text-gray-300 text-base font-medium leading-normal"
+                >
+                  Out of Stock
+                </p>
+                <p
+                  class="text-[#131811] dark:text-white tracking-light text-2xl font-bold leading-tight"
+                >
+                  1
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-[#1C2C19] rounded-xl border border-[#dee6db] dark:border-gray-700"
+            >
+              <!-- ToolBar & SearchBar -->
+              <div
+                class="flex flex-wrap items-center justify-between gap-4 p-4 border-b border-[#dee6db] dark:border-gray-700"
+              >
+                <div class="flex-1 min-w-[250px]">
+                  <label class="flex flex-col h-12 w-full">
+                    <div
+                      class="flex w-full flex-1 items-stretch rounded-lg h-full"
+                    >
+                      <div
+                        class="text-[#6b8961] dark:text-gray-400 flex border-none bg-[#f1f4f0] dark:bg-background-dark items-center justify-center pl-4 rounded-l-lg border-r-0"
+                      >
+                        <span class="material-symbols-outlined">search</span>
+                      </div>
+                      <input
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#131811] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#f1f4f0] dark:bg-background-dark focus:border-none h-full placeholder:text-[#6b8961] dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                        placeholder="Search by ingredient name..."
+                        value=""
+                      />
+                    </div>
+                  </label>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button
+                    class="p-2 rounded-lg text-[#131811] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                    <span class="material-symbols-outlined text-2xl"
+                      >filter_list</span
+                    >
+                  </button>
+                  <button
+                    class="p-2 rounded-lg text-[#131811] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                    <span class="material-symbols-outlined text-2xl"
+                      >swap_vert</span
+                    >
+                  </button>
+                  <button
+                    class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-[#131811] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4"
+                  >
+                    <span
+                      class="material-symbols-outlined text-2xl"
+                      style="font-variation-settings: 'FILL' 1"
+                      >add</span
+                    >
+                    <span class="truncate">Add New Item</span>
+                  </button>
+                </div>
+              </div>
+              <!-- Inventory Table -->
+              <div class="overflow-x-auto">
+                <table
+                  class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+                >
+                  <thead
+                    class="text-xs text-[#6b8961] dark:text-gray-400 uppercase bg-[#f1f4f0] dark:bg-background-dark"
+                  >
+                    <tr>
+                      <th class="p-4" scope="col">
+                        <input
+                          class="form-checkbox rounded border-gray-300 dark:border-gray-600 bg-transparent dark:bg-gray-800 text-primary focus:ring-primary/50"
+                          type="checkbox"
+                        />
+                      </th>
+                      <th class="px-6 py-3" scope="col">Ingredient</th>
+                      <th class="px-6 py-3" scope="col">Quantity on Hand</th>
+                      <th class="px-6 py-3" scope="col">Status</th>
+                      <th class="px-6 py-3" scope="col">Expires On</th>
+                      <th class="px-6 py-3 text-center" scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-[#131811] dark:text-white">
+                    <tr
+                      class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    >
+                      <td class="w-4 p-4">
+                        <input
+                          class="form-checkbox rounded border-gray-300 dark:border-gray-600 bg-transparent dark:bg-gray-700 text-primary focus:ring-primary/50"
+                          type="checkbox"
+                        />
+                      </td>
+                      <th
+                        class="px-6 py-4 font-medium whitespace-nowrap"
+                        scope="row"
+                      >
+                        All-Purpose Flour
+                      </th>
+                      <td class="px-6 py-4">50 kg</td>
+                      <td class="px-6 py-4">
+                        <span
+                          class="inline-flex items-center gap-1.5 py-1 px-2 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
+                          ><span
+                            class="size-1.5 inline-block rounded-full bg-green-500"
+                          ></span
+                          >In Stock</span
+                        >
+                      </td>
+                      <td class="px-6 py-4">2024-12-31</td>
+                      <td class="px-6 py-4 text-center">
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >edit</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >history</span
+                          >
+                        </button>
+                        <button class="p-1.5 text-red-500 hover:text-red-700">
+                          <span class="material-symbols-outlined text-xl"
+                            >delete</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    >
+                      <td class="w-4 p-4">
+                        <input
+                          class="form-checkbox rounded border-gray-300 dark:border-gray-600 bg-transparent dark:bg-gray-700 text-primary focus:ring-primary/50"
+                          type="checkbox"
+                        />
+                      </td>
+                      <th
+                        class="px-6 py-4 font-medium whitespace-nowrap"
+                        scope="row"
+                      >
+                        Granulated Sugar
+                      </th>
+                      <td class="px-6 py-4">8 kg</td>
+                      <td class="px-6 py-4">
+                        <span
+                          class="inline-flex items-center gap-1.5 py-1 px-2 rounded-full text-xs font-medium bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200"
+                          ><span
+                            class="size-1.5 inline-block rounded-full bg-orange-500"
+                          ></span
+                          >Low Stock</span
+                        >
+                      </td>
+                      <td class="px-6 py-4">2025-06-15</td>
+                      <td class="px-6 py-4 text-center">
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >edit</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >history</span
+                          >
+                        </button>
+                        <button class="p-1.5 text-red-500 hover:text-red-700">
+                          <span class="material-symbols-outlined text-xl"
+                            >delete</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    >
+                      <td class="w-4 p-4">
+                        <input
+                          class="form-checkbox rounded border-gray-300 dark:border-gray-600 bg-transparent dark:bg-gray-700 text-primary focus:ring-primary/50"
+                          type="checkbox"
+                        />
+                      </td>
+                      <th
+                        class="px-6 py-4 font-medium whitespace-nowrap"
+                        scope="row"
+                      >
+                        Fresh Strawberries
+                      </th>
+                      <td class="px-6 py-4">2 kg</td>
+                      <td class="px-6 py-4">
+                        <span
+                          class="inline-flex items-center gap-1.5 py-1 px-2 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200"
+                          ><span
+                            class="size-1.5 inline-block rounded-full bg-yellow-500"
+                          ></span
+                          >Expiring Soon</span
+                        >
+                      </td>
+                      <td
+                        class="px-6 py-4 text-yellow-600 dark:text-yellow-400 font-medium"
+                      >
+                        2024-08-25
+                      </td>
+                      <td class="px-6 py-4 text-center">
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >edit</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >history</span
+                          >
+                        </button>
+                        <button class="p-1.5 text-red-500 hover:text-red-700">
+                          <span class="material-symbols-outlined text-xl"
+                            >delete</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    >
+                      <td class="w-4 p-4">
+                        <input
+                          class="form-checkbox rounded border-gray-300 dark:border-gray-600 bg-transparent dark:bg-gray-700 text-primary focus:ring-primary/50"
+                          type="checkbox"
+                        />
+                      </td>
+                      <th
+                        class="px-6 py-4 font-medium whitespace-nowrap"
+                        scope="row"
+                      >
+                        Baking Soda
+                      </th>
+                      <td class="px-6 py-4">0 g</td>
+                      <td class="px-6 py-4">
+                        <span
+                          class="inline-flex items-center gap-1.5 py-1 px-2 rounded-full text-xs font-medium bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200"
+                          ><span
+                            class="size-1.5 inline-block rounded-full bg-red-500"
+                          ></span
+                          >Out of Stock</span
+                        >
+                      </td>
+                      <td class="px-6 py-4">2024-09-30</td>
+                      <td class="px-6 py-4 text-center">
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >edit</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >history</span
+                          >
+                        </button>
+                        <button class="p-1.5 text-red-500 hover:text-red-700">
+                          <span class="material-symbols-outlined text-xl"
+                            >delete</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                      <td class="w-4 p-4">
+                        <input
+                          class="form-checkbox rounded border-gray-300 dark:border-gray-600 bg-transparent dark:bg-gray-700 text-primary focus:ring-primary/50"
+                          type="checkbox"
+                        />
+                      </td>
+                      <th
+                        class="px-6 py-4 font-medium whitespace-nowrap"
+                        scope="row"
+                      >
+                        Butter
+                      </th>
+                      <td class="px-6 py-4">15 kg</td>
+                      <td class="px-6 py-4">
+                        <span
+                          class="inline-flex items-center gap-1.5 py-1 px-2 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
+                          ><span
+                            class="size-1.5 inline-block rounded-full bg-green-500"
+                          ></span
+                          >In Stock</span
+                        >
+                      </td>
+                      <td class="px-6 py-4">2024-10-10</td>
+                      <td class="px-6 py-4 text-center">
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >edit</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                        >
+                          <span class="material-symbols-outlined text-xl"
+                            >history</span
+                          >
+                        </button>
+                        <button class="p-1.5 text-red-500 hover:text-red-700">
+                          <span class="material-symbols-outlined text-xl"
+                            >delete</span
+                          >
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Price Calculation Module - The Sweet Corner</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ec7f13",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221910",
+              "foreground-light": "#181411",
+              "foreground-dark": "#f8f7f6",
+              "card-light": "#ffffff",
+              "card-dark": "#2a2218",
+              "border-light": "#e6e0db",
+              "border-dark": "#443b31",
+              "muted-light": "#897561",
+              "muted-dark": "#a1907e",
+            },
+            fontFamily: {
+              display: ["Work Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark"
+  >
+    <div class="relative flex min-h-screen w-full">
+      <!-- SideNavBar -->
+      <aside
+        class="flex w-64 flex-col border-r border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4"
+      >
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              data-alt="Bakery logo"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhnfMZeAUpSVDBQ06hBGjM0OOScQnhjnTisq9F4r_incGXTrv5bOBXEY8XVAmXnNIeH9AEDhjT_DULxjZ5MN868RoDhnDKRSs7-vvGpAAkwiDL57Fo_DDiBhDG5pcACtuJkZ9IVf0Z2k5hy6SmzXl9XBeACFSTIo7EbI-_XZNdobbalZbDgwmx94Wny_trAWrlUPPoAIe4fPZem6x0FrSh9hzCGK0-egf3Dr7Ud90H0VfYUvQkcRvMNGjH6rbWTpiyMVyVrhOQSz53');
+              "
+            ></div>
+            <div class="flex flex-col">
+              <h1
+                class="text-foreground-light dark:text-foreground-dark text-base font-medium leading-normal"
+              >
+                The Sweet Corner
+              </h1>
+              <p
+                class="text-muted-light dark:text-muted-dark text-sm font-normal leading-normal"
+              >
+                Bakery Manager
+              </p>
+            </div>
+          </div>
+          <nav class="flex flex-col gap-2 mt-4">
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-foreground-light dark:text-foreground-dark"
+                >dashboard</span
+              >
+              <p
+                class="text-foreground-light dark:text-foreground-dark text-sm font-medium leading-normal"
+              >
+                Dashboard
+              </p>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-foreground-light dark:text-foreground-dark"
+                >menu_book</span
+              >
+              <p
+                class="text-foreground-light dark:text-foreground-dark text-sm font-medium leading-normal"
+              >
+                Recipes
+              </p>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-foreground-light dark:text-foreground-dark"
+                >inventory_2</span
+              >
+              <p
+                class="text-foreground-light dark:text-foreground-dark text-sm font-medium leading-normal"
+              >
+                Inventory
+              </p>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-md bg-primary/20 text-primary"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-primary"
+                style="font-variation-settings: 'FILL' 1"
+                >sell</span
+              >
+              <p class="text-primary text-sm font-medium leading-normal">
+                Pricing
+              </p>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-foreground-light dark:text-foreground-dark"
+                >settings</span
+              >
+              <p
+                class="text-foreground-light dark:text-foreground-dark text-sm font-medium leading-normal"
+              >
+                Settings
+              </p>
+            </a>
+          </nav>
+        </div>
+        <div class="mt-auto flex flex-col gap-4">
+          <button
+            class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors"
+          >
+            <span class="truncate">New Product</span>
+          </button>
+          <div class="flex flex-col gap-1">
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-foreground-light dark:text-foreground-dark"
+                >help_outline</span
+              >
+              <p
+                class="text-foreground-light dark:text-foreground-dark text-sm font-medium leading-normal"
+              >
+                Help
+              </p>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-foreground-light dark:text-foreground-dark"
+                >logout</span
+              >
+              <p
+                class="text-foreground-light dark:text-foreground-dark text-sm font-medium leading-normal"
+              >
+                Logout
+              </p>
+            </a>
+          </div>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="flex-1 p-8 overflow-y-auto">
+        <div class="max-w-7xl mx-auto">
+          <!-- Page Heading -->
+          <header
+            class="flex flex-wrap justify-between items-center gap-4 mb-8"
+          >
+            <div class="flex min-w-72 flex-col gap-2">
+              <p
+                class="text-foreground-light dark:text-foreground-dark text-4xl font-black leading-tight tracking-[-0.033em]"
+              >
+                Price Calculation Module
+              </p>
+              <p
+                class="text-muted-light dark:text-muted-dark text-base font-normal leading-normal"
+              >
+                Automate selling prices based on ingredient costs and profit
+                margin.
+              </p>
+            </div>
+            <button
+              class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors"
+            >
+              <span class="material-symbols-outlined text-base">save</span>
+              <span class="truncate">Save Calculation</span>
+            </button>
+          </header>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column: Inputs -->
+            <div class="lg:col-span-2 flex flex-col gap-8">
+              <!-- Ingredient Cost Calculator -->
+              <section
+                class="bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark p-6"
+              >
+                <h2
+                  class="text-foreground-light dark:text-foreground-dark text-[22px] font-bold leading-tight tracking-[-0.015em] pb-4"
+                >
+                  Ingredient Cost Calculator
+                </h2>
+                <div class="overflow-x-auto">
+                  <div
+                    class="flex overflow-hidden rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark"
+                  >
+                    <table class="w-full">
+                      <thead
+                        class="bg-background-light dark:bg-background-dark"
+                      >
+                        <tr>
+                          <th
+                            class="px-4 py-3 text-left text-foreground-light dark:text-foreground-dark w-2/5 text-sm font-medium leading-normal"
+                          >
+                            Ingredient Name
+                          </th>
+                          <th
+                            class="px-4 py-3 text-left text-foreground-light dark:text-foreground-dark w-1/5 text-sm font-medium leading-normal"
+                          >
+                            Quantity (g)
+                          </th>
+                          <th
+                            class="px-4 py-3 text-left text-foreground-light dark:text-foreground-dark w-1/5 text-sm font-medium leading-normal"
+                          >
+                            Cost/Unit ($)
+                          </th>
+                          <th
+                            class="px-4 py-3 text-left text-foreground-light dark:text-foreground-dark w-1/5 text-sm font-medium leading-normal"
+                          >
+                            Total ($)
+                          </th>
+                          <th
+                            class="px-4 py-3 text-right text-foreground-light dark:text-foreground-dark w-12 text-sm font-medium leading-normal"
+                          ></th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="divide-y divide-border-light dark:divide-border-dark"
+                      >
+                        <tr>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              type="text"
+                              value="All-Purpose Flour"
+                            />
+                          </td>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              type="number"
+                              value="500"
+                            />
+                          </td>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              step="0.01"
+                              type="number"
+                              value="0.02"
+                            />
+                          </td>
+                          <td
+                            class="px-4 py-2 text-muted-light dark:text-muted-dark text-sm"
+                          >
+                            10.00
+                          </td>
+                          <td class="px-4 py-2 text-right">
+                            <button
+                              class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                            >
+                              <span class="material-symbols-outlined text-xl"
+                                >delete</span
+                              >
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              type="text"
+                              value="Granulated Sugar"
+                            />
+                          </td>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              type="number"
+                              value="250"
+                            />
+                          </td>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              step="0.01"
+                              type="number"
+                              value="0.03"
+                            />
+                          </td>
+                          <td
+                            class="px-4 py-2 text-muted-light dark:text-muted-dark text-sm"
+                          >
+                            7.50
+                          </td>
+                          <td class="px-4 py-2 text-right">
+                            <button
+                              class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                            >
+                              <span class="material-symbols-outlined text-xl"
+                                >delete</span
+                              >
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              type="text"
+                              value="Butter"
+                            />
+                          </td>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              type="number"
+                              value="227"
+                            />
+                          </td>
+                          <td class="px-4 py-2">
+                            <input
+                              class="w-full bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-md border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                              step="0.01"
+                              type="number"
+                              value="0.05"
+                            />
+                          </td>
+                          <td
+                            class="px-4 py-2 text-muted-light dark:text-muted-dark text-sm"
+                          >
+                            11.35
+                          </td>
+                          <td class="px-4 py-2 text-right">
+                            <button
+                              class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                            >
+                              <span class="material-symbols-outlined text-xl"
+                                >delete</span
+                              >
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="mt-4 flex justify-start">
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary gap-2 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/30 transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-base">add</span>
+                    <span class="truncate">Add Ingredient</span>
+                  </button>
+                </div>
+              </section>
+            </div>
+            <!-- Right Column: Results & Analysis -->
+            <div class="lg:col-span-1 flex flex-col gap-8">
+              <!-- Pricing Calculation -->
+              <section
+                class="bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark p-6"
+              >
+                <h2
+                  class="text-foreground-light dark:text-foreground-dark text-[22px] font-bold leading-tight tracking-[-0.015em] pb-4"
+                >
+                  Pricing Calculation
+                </h2>
+                <div class="space-y-6">
+                  <div
+                    class="flex justify-between items-center text-muted-light dark:text-muted-dark"
+                  >
+                    <span>Total Ingredient Cost</span>
+                    <span
+                      class="text-foreground-light dark:text-foreground-dark font-medium"
+                      >$28.85</span
+                    >
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      class="text-sm font-medium text-foreground-light dark:text-foreground-dark flex items-center gap-2"
+                      for="profit-margin"
+                      >Profit Margin (%)
+                      <span
+                        class="material-symbols-outlined text-base text-muted-light dark:text-muted-dark"
+                        >help_outline</span
+                      ></label
+                    >
+                    <div class="relative">
+                      <input
+                        class="w-full pl-4 pr-12 bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-lg border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                        id="profit-margin"
+                        type="number"
+                        value="40"
+                      />
+                      <span
+                        class="absolute inset-y-0 right-4 flex items-center text-muted-light dark:text-muted-dark"
+                        >%</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-muted-light dark:text-muted-dark"
+                  >
+                    <span>Calculated Profit</span>
+                    <span
+                      class="text-foreground-light dark:text-foreground-dark font-medium"
+                      >$11.54</span
+                    >
+                  </div>
+                  <hr class="border-border-light dark:border-border-dark" />
+                  <div
+                    class="bg-primary/10 dark:bg-primary/20 p-4 rounded-lg text-center"
+                  >
+                    <p
+                      class="text-sm text-primary uppercase font-bold tracking-wider"
+                    >
+                      Final Suggested Price
+                    </p>
+                    <p
+                      class="text-4xl font-black text-primary tracking-tighter mt-1"
+                    >
+                      $40.39
+                    </p>
+                  </div>
+                </div>
+              </section>
+              <!-- Price Analysis -->
+              <section
+                class="bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark p-6"
+              >
+                <h2
+                  class="text-foreground-light dark:text-foreground-dark text-[22px] font-bold leading-tight tracking-[-0.015em] pb-4"
+                >
+                  Price Analysis
+                </h2>
+                <div class="space-y-4">
+                  <div>
+                    <label
+                      class="text-sm font-medium text-foreground-light dark:text-foreground-dark"
+                      for="actual-price"
+                      >Current Selling Price</label
+                    >
+                    <div class="relative mt-2">
+                      <span
+                        class="absolute inset-y-0 left-4 flex items-center text-muted-light dark:text-muted-dark"
+                        >$</span
+                      >
+                      <input
+                        class="w-full pl-8 bg-transparent p-2 focus:ring-1 focus:ring-primary rounded-lg border-0 ring-1 ring-inset ring-border-light dark:ring-border-dark"
+                        id="actual-price"
+                        type="number"
+                        value="38.50"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex items-end gap-4 pt-4">
+                    <div class="flex flex-col items-center gap-2 w-1/2">
+                      <div
+                        class="w-16 h-40 bg-primary/20 rounded-md flex items-end"
+                      >
+                        <div
+                          class="w-full bg-primary rounded-t-md"
+                          style="height: 100%"
+                        ></div>
+                      </div>
+                      <p class="text-xs text-muted-light dark:text-muted-dark">
+                        Suggested
+                      </p>
+                      <p
+                        class="font-bold text-foreground-light dark:text-foreground-dark"
+                      >
+                        $40.39
+                      </p>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 w-1/2">
+                      <div
+                        class="w-16 h-40 bg-primary/20 rounded-md flex items-end"
+                      >
+                        <div
+                          class="w-full bg-border-light dark:bg-border-dark rounded-t-md"
+                          style="height: 90%"
+                        ></div>
+                      </div>
+                      <p class="text-xs text-muted-light dark:text-muted-dark">
+                        Actual
+                      </p>
+                      <p
+                        class="font-bold text-foreground-light dark:text-foreground-dark"
+                      >
+                        $38.50
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-4 text-center text-sm p-3 rounded-md bg-red-500/10 text-red-700 dark:text-red-400"
+                  >
+                    Current price is
+                    <span class="font-bold">$1.89 lower</span> than suggested.
+                    Consider adjusting for a better profit margin.
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

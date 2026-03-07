@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Bakery Management System - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ec7f13",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221910",
+              "neutral-text-light": "#181411",
+              "neutral-text-dark": "#f8f7f6",
+              "subtle-text-light": "#897561",
+              "subtle-text-dark": "#a1988e",
+              "border-light": "#e6e0db",
+              "border-dark": "#4d4235",
+              "card-light": "#ffffff",
+              "card-dark": "#2d2318",
+            },
+            fontFamily: {
+              display: ["Epilogue", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-display">
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark group/design-root overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          class="h-full w-full object-cover opacity-20 dark:opacity-10"
+          data-alt="A warm, inviting image of freshly baked croissants on a wooden board, suggesting a cozy bakery atmosphere."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0UX-7989mP0SvqPDgMbZdjFO04CSzvKGIWIUfHW7WavOhRnAWAnV4_lVVpfGGIoZUV2w78N6qulCe4BRzkiZ22rcsHB_mz2YP-LvvCr3vH1ycXLixNg2DyLmayf59Nn3ql0ahzo69-7ppAbZq2IHd4y0op1NxjKnnpZ0CpoqYs4IlbzFXY9Cc7-tCybZWje68p4VToui6Giy799UNz-br5tYph-4-XNVovxNNwB_xvQf3xJcILxb0wowZ2RX4kSX7H8Gydw9huTNT"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-background-light via-background-light/50 to-transparent dark:from-background-dark dark:via-background-dark/50"
+        ></div>
+      </div>
+      <main class="z-10 flex w-full max-w-md flex-col items-center p-6 md:p-8">
+        <div
+          class="flex w-full flex-col items-center gap-6 rounded-xl border border-border-light bg-card-light p-6 shadow-lg dark:border-border-dark dark:bg-card-dark md:p-10"
+        >
+          <div class="flex flex-col items-center gap-2">
+            <div class="rounded-lg bg-primary/20 p-3 text-primary">
+              <span class="material-symbols-outlined !text-4xl"
+                >bakery_dining</span
+              >
+            </div>
+          </div>
+          <div class="flex flex-col items-center gap-2 text-center">
+            <h1
+              class="text-3xl font-bold tracking-tight text-neutral-text-light dark:text-neutral-text-dark"
+            >
+              Welcome Back
+            </h1>
+            <p
+              class="text-base text-subtle-text-light dark:text-subtle-text-dark"
+            >
+              Please enter your details to sign in.
+            </p>
+          </div>
+          <form class="flex w-full flex-col gap-4">
+            <label class="flex w-full flex-col">
+              <p
+                class="pb-2 text-base font-medium text-neutral-text-light dark:text-neutral-text-dark"
+              >
+                Email
+              </p>
+              <div class="relative flex w-full items-center">
+                <span
+                  class="material-symbols-outlined pointer-events-none absolute left-4 text-subtle-text-light dark:text-subtle-text-dark"
+                  >mail</span
+                >
+                <input
+                  class="form-input h-14 w-full flex-1 resize-none overflow-hidden rounded-lg border border-border-light bg-background-light p-4 pl-12 text-base font-normal leading-normal text-neutral-text-light placeholder:text-subtle-text-light focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-border-dark dark:bg-background-dark dark:text-neutral-text-dark dark:placeholder:text-subtle-text-dark dark:focus:border-primary"
+                  placeholder="Enter your email"
+                  type="email"
+                  value=""
+                />
+              </div>
+            </label>
+            <label class="flex w-full flex-col">
+              <p
+                class="pb-2 text-base font-medium text-neutral-text-light dark:text-neutral-text-dark"
+              >
+                Password
+              </p>
+              <div class="relative flex w-full items-center">
+                <span
+                  class="material-symbols-outlined pointer-events-none absolute left-4 text-subtle-text-light dark:text-subtle-text-dark"
+                  >lock</span
+                >
+                <input
+                  class="form-input h-14 w-full flex-1 resize-none overflow-hidden rounded-lg border border-border-light bg-background-light p-4 pl-12 pr-12 text-base font-normal leading-normal text-neutral-text-light placeholder:text-subtle-text-light focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-border-dark dark:bg-background-dark dark:text-neutral-text-dark dark:placeholder:text-subtle-text-dark dark:focus:border-primary"
+                  placeholder="Enter your password"
+                  type="password"
+                  value=""
+                />
+                <button
+                  aria-label="Toggle password visibility"
+                  class="absolute right-4 text-subtle-text-light dark:text-subtle-text-dark"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined">visibility</span>
+                </button>
+              </div>
+            </label>
+            <div class="flex items-center justify-end">
+              <a
+                class="text-sm font-medium text-primary underline-offset-4 hover:underline"
+                href="#"
+                >Forgot Password?</a
+              >
+            </div>
+            <!-- This component can be uncommented to show error messages -->
+            <!-- 
+                    <div class="flex items-center gap-2 rounded-lg bg-red-500/10 p-3 text-sm text-red-500 dark:bg-red-500/20 dark:text-red-400">
+                        <span class="material-symbols-outlined !text-xl">error</span>
+                        <p>Invalid email or password. Please try again.</p>
+                    </div>
+                     -->
+            <button
+              class="flex h-14 w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 text-base font-bold text-white shadow-sm transition-all hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:scale-[0.98]"
+            >
+              Log In
+            </button>
+          </form>
+        </div>
+        <p
+          class="mt-8 text-center text-sm text-subtle-text-light dark:text-subtle-text-dark"
+        >
+          © 2024 Your Bakery Inc. All rights reserved.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

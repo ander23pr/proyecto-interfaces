@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bakery Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#181411", 
+                        "card-light": "#ffffff",
+                        "card-dark": "#221910",
+                        "text-light": "#181411",
+                        "text-dark": "#f8f7f6",
+                        "muted-light": "#897561",
+                        "muted-dark": "#a19182",
+                        "border-light": "#e6e0db",
+                        "border-dark": "#3a3025",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-row">
+<!-- SideNavBar -->
+<aside class="sticky top-0 h-screen flex flex-col w-64 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark p-4">
+<div class="flex h-full flex-col justify-between">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="The Golden Crust logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9R68HezKgNblIz5BEzkWWgE4WgOQby5K5sxO2ZHl4uGsTwda11qvSMkxyeDbOY6TVK6nOW2n6PKEoVTEyKKrka2D-LDkValo_MdS5bGMNLIclcm1HG4KcdHwFRpBYliB0bw_UZdyU8L2aUxshxovKARo_7pXdNu-cTh99ua--9WDQDgpGWiI3rBCx2w0seM_2EJLZ0U2L0AM2cPbL243GINGzNxvBliV-KtBrO4pomtGhSSibUmnraX4wxDiE3ZHlHyc7ciWT_Ped");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-light dark:text-text-dark text-base font-bold leading-normal">The Golden Crust</h1>
+<p class="text-muted-light dark:text-muted-dark text-sm font-normal leading-normal">Bakery Management</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-semibold leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/10 hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<p class="text-sm font-medium leading-normal">Inventory</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/10 hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/10 hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/10 hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Reports</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/10 hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-light dark:text-text-dark hover:bg-primary/10 hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<p class="text-sm font-medium leading-normal">Profile</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-7xl mx-auto">
+<!-- Header -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div class="flex flex-col">
+<h1 class="text-text-light dark:text-text-dark text-4xl font-black leading-tight tracking-[-0.033em]">Dashboard</h1>
+<p class="text-muted-light dark:text-muted-dark">Welcome back, here is your bakery's performance overview.</p>
+</div>
+<!-- ButtonGroup -->
+<div class="flex items-center gap-3">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+<span class="material-symbols-outlined !text-xl">picture_as_pdf</span>
+<span class="truncate">Export PDF</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined !text-xl">grid_on</span>
+<span class="truncate">Export Excel</span>
+</button>
+</div>
+</header>
+<!-- Date Chips -->
+<div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 px-4">
+<p class="text-primary text-sm font-semibold leading-normal">Today</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark px-4 hover:bg-primary/10 transition-colors">
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Last 7 Days</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark px-4 hover:bg-primary/10 transition-colors">
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">This Month</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark px-4 hover:bg-primary/10 transition-colors">
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Custom Range</p>
+</button>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-muted-light dark:text-muted-dark text-base font-medium leading-normal">Today's Revenue</p>
+<p class="text-text-light dark:text-text-dark tracking-light text-3xl font-bold leading-tight">$1,250</p>
+<p class="text-[#07880e] text-base font-medium leading-normal">+5.2% vs yesterday</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-muted-light dark:text-muted-dark text-base font-medium leading-normal">Orders Today</p>
+<p class="text-text-light dark:text-text-dark tracking-light text-3xl font-bold leading-tight">85</p>
+<p class="text-[#07880e] text-base font-medium leading-normal">+3.1% vs yesterday</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-muted-light dark:text-muted-dark text-base font-medium leading-normal">Average Order Value</p>
+<p class="text-text-light dark:text-text-dark tracking-light text-3xl font-bold leading-tight">$14.71</p>
+<p class="text-[#cf1010] text-base font-medium leading-normal">-1.5% vs yesterday</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-muted-light dark:text-muted-dark text-base font-medium leading-normal">New Customers</p>
+<p class="text-text-light dark:text-text-dark tracking-light text-3xl font-bold leading-tight">12</p>
+<p class="text-[#07880e] text-base font-medium leading-normal">+8.0% vs yesterday</p>
+</div>
+</div>
+<!-- Charts Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Sales Performance -->
+<div class="lg:col-span-2 p-6 bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark mb-4">Sales Performance</h3>
+<div class="w-full h-80 bg-background-light dark:bg-background-dark rounded-lg flex items-center justify-center">
+<img class="w-full h-full object-contain" data-alt="A line chart showing sales performance over the past six months, with a positive trend line." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_CG5rsHvIPfrIhFG4iqqpT3YIFNZB9LimVwT0Cf4LlauuPhINdGzPSoydBYj42QCY-S23OsJuwwnGVzuDGaSGtuwm-IwXTL0Fc_w--2Aug7TdL0JOIVG8sdqDgVubtB4OEqaafrvzd3kpAgBcz69LP6HcbHUfRYYLLRMSFBy_FSNNrTcorsoah0O7xvhMXfmhUvRfn0S8umpfJhEMAma_nZ9-oIheGy9XNkc3k1hQpIbIhldeZHRjG-B50_gjTDQnVOgUzrFrzplI"/>
+</div>
+</div>
+<!-- Ingredient Loss -->
+<div class="p-6 bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark mb-4">Ingredient Loss</h3>
+<div class="w-full h-80 bg-background-light dark:bg-background-dark rounded-lg flex items-center justify-center">
+<img class="w-full h-full object-contain" data-alt="A donut chart showing ingredient loss breakdown: Flour, Dairy, and Fruits." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlbOKONQG7LF2O-3EMqiHCzf-87nhjUTtpObdcG1CTP3YSy4fPe-SeIKGbK5h1c-NfW4DWMRyDvCgqKq7rCH_Cx0Ec_HcC9OthWUjEwUEUDXSR2Y3QuC2440RU1S13iL__LlCGDA2p0wmEfQbJinQXNcBNpHnDiuwtWckk5gpWJ45Zp5rOeaZHtaVPQcY6VCwstlCXhzpkmzytJx3iPQkvctZ_6cKKMV1MQ1eEr23AeOdh9I2ungQwfUKLgRO3HTvPWdgZGsQOOVmK"/>
+</div>
+</div>
+<!-- Best Selling Products -->
+<div class="lg:col-span-3 p-6 bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark mb-4">Best-Selling Products</h3>
+<div class="w-full h-80 bg-background-light dark:bg-background-dark rounded-lg flex items-center justify-center">
+<img class="w-full h-full object-contain" data-alt="A bar chart displaying the top 5 best-selling products by units sold. Croissant is the highest." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3fnepQ3n9zogKa5lwH_n1lBglw7LSTPpF-8-kO0Y9FCBHCv6h6G0eEZVGZFYmUlSG1iJHxO-3htCn7V_7G3OsTtshpmsOB2O2eGIOV6KPCmwNZhfE5Zpxpao9Pt6rtEs9l0IPVZUpcBa5tyUK92Kehf6K449R8ONlQDaqUtFJxujTdZQiNkmrVIaJdMGGC5nEeTwAmCurKG3NHfYrXdox8vpDh6_UEbxZnFuHVMhunnoVBafg0ilNBZhhVl-ecjrAElffbWYVnih5"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
